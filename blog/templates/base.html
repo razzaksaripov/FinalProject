@@ -27,7 +27,12 @@
             <!-- Display a greeting if the user is authenticated -->
             <p>Hi {{ user.username }}!</p>
             <!-- Provide a link to log out -->
-            <p><a href="{% url 'logout' %}">Log out</a></p>
+            <!-- <p><a href="{% url 'logout' %}">Log out</a></p> -->
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+              </form>
+
         {% else %}
             <!-- Display a message and links to log in and sign up if the user is not authenticated -->
             <p>You are not logged in. <a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a></p>
