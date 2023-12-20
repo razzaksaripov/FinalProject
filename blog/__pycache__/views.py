@@ -13,4 +13,5 @@ class SignUpView(CreateView):
 def logout_view(request):
     logout(request)
     # Redirect to a page after logout, or you can use Django's default behavior
-    return redirect('' + 'home')
+    return redirect('home')
+
